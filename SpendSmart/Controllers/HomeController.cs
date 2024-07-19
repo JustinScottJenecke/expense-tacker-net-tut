@@ -31,6 +31,10 @@ public class HomeController : Controller
     {
         return View();
     }
+    public IActionResult ExpenseCreateEditFormHandler(Expense expense)
+    {
+        return RedirectToAction("Expenses");
+    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
