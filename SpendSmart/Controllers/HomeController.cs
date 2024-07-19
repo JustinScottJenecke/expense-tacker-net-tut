@@ -53,7 +53,15 @@ public class HomeController : Controller
     }
     public IActionResult ExpenseCreateEditFormHandler(Expense expense)
     {
-        _dbContext.Expenses.Add(expense);
+        // new expense
+        if (expense.Id == 0)
+        {
+            _dbContext.Expenses.Add(expense);    
+        } else 
+        {
+            _dbContext.Expenses.Update(expense);
+        }
+
         _dbContext.SaveChanges();
 
         return RedirectToAction("Expenses");
