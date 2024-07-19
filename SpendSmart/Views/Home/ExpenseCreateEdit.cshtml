@@ -8,8 +8,8 @@
 <br>
 <div class="">
     <form asp-action="ExpenseCreateEditFormHandler" asp-controller="Home">
-        <label for="">Id</label>
-        <input type="number" class="form-control" placeholder="0" asp-for="Id">
+        @* <label for="">Id</label> *@
+        <input hidden type="number" class="form-control" placeholder="0" asp-for="Id">
         <br>
         <label for="">Value</label>
         <input type="number" class="form-control" placeholder="0.00" asp-for="Value" step="0.01">
