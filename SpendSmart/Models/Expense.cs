@@ -1,12 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SpendSmart;
+namespace SpendSmart.Models;
 
 public class Expense
 {
-    int Id {get; set;}
-    decimal Value {get; set;}
+    public int Id {get; set;}
+    
+    public decimal Value {get; set;}
     
     [Required]
-    string? Description {get; set;}
+    public string? Description {get; set;}
 }
