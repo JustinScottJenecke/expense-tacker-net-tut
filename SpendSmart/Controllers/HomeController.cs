@@ -7,10 +7,12 @@ namespace SpendSmart.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly SpendSmartDbContext _dbContext;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, SpendSmartDbContext dbContext)
     {
         _logger = logger;
+        _dbContext = dbContext;
     }
 
     public IActionResult Index()
@@ -33,6 +35,9 @@ public class HomeController : Controller
     }
     public IActionResult ExpenseCreateEditFormHandler(Expense expense)
     {
+        _dbContext.Expenses.Add(expense);
+        _dbContext.SaveChanges();
+
         return RedirectToAction("Expenses");
     }
 
