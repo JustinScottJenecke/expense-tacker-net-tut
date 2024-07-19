@@ -12,6 +12,7 @@
             <div class="col text-center">Id</div>
             <div class="col text-center">Value</div>
             <div class="col text-center">Description</div>
+            <div class="col-1 text-center">Actions</div>
         </li>
     </ul>
     <hr>
@@ -19,10 +20,18 @@
         @{
             foreach (var expense in Model)
             {
-                <li class="row">
+                <li class="row my-2">
                     <div class="col text-center">@expense.Id</div>
                     <div class="col text-center">R @expense.Value</div>
                     <div class="col text-center">@expense.Description</div>
+                    <div class="col-1 text-center d-flex flex-column">
+                        <a asp-action="ExpenseCreateEdit" asp-route-id="@expense.Id">
+                            <button>Update</button>
+                        </a>
+                        <a asp-action="ExpenseDelete" asp-route-id="@expense.Id">
+                            <button>Delete</button>
+                        </a>
+                    </div>
                 </li>
             }
         }
