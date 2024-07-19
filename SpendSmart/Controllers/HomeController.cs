@@ -28,6 +28,10 @@ public class HomeController : Controller
     public IActionResult Expenses()
     {
         var allExpenses = _dbContext.Expenses.ToList<Expense>();
+        var totalExpenses = allExpenses.Sum(e => e.Value);
+
+        ViewBag.ExpensesTotal = totalExpenses;
+
         return View(allExpenses);
     }
     public IActionResult ExpenseCreateEdit(int? id)

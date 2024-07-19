@@ -6,6 +6,11 @@
 <h1 class="">Expenses</h1>
 
 <p>View all expenses</p>
+
+<hr>
+<h5 class="text-center">Total Expenses: R @ViewBag.ExpensesTotal</h5>
+<hr>
+
 <div>
     <ul id="header-row">
         <li class="row">
@@ -26,15 +31,22 @@
                     <div class="col text-center">@expense.Description</div>
                     <div class="col-1 text-center d-flex flex-column">
                         <a asp-action="ExpenseCreateEdit" asp-route-id="@expense.Id">
-                            <button>Update</button>
+                            <button class="btn btn-success">Update</button>
                         </a>
                         <a asp-action="ExpenseDelete" asp-route-id="@expense.Id">
-                            <button>Delete</button>
+                            <button class="btn btn-danger">Delete</button>
                         </a>
                     </div>
                 </li>
             }
         }
     </ul>
+    <div class="text-center">
+        <a asp-controller="Home" asp-action="ExpenseCreateEdit">
+            <button class="btn btn-primary">
+                Add
+            </button>  
+        </a>
+    </div>
 </div>
 
