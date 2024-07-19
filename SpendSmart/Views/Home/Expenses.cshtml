@@ -1,9 +1,31 @@
 @{
     ViewData["Title"] = "Expenses";
 }
+@model List<Expense>
 
 <h1 class="">Expenses</h1>
 
 <p>View all expenses</p>
-
+<div>
+    <ul id="header-row">
+        <li class="row">
+            <div class="col text-center">Id</div>
+            <div class="col text-center">Value</div>
+            <div class="col text-center">Description</div>
+        </li>
+    </ul>
+    <hr>
+    <ul id="all-expenses" class="">
+        @{
+            foreach (var expense in Model)
+            {
+                <li class="row">
+                    <div class="col text-center">@expense.Id</div>
+                    <div class="col text-center">R @expense.Value</div>
+                    <div class="col text-center">@expense.Description</div>
+                </li>
+            }
+        }
+    </ul>
+</div>
 

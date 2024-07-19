@@ -27,7 +27,8 @@ public class HomeController : Controller
 
     public IActionResult Expenses()
     {
-        return View();
+        var allExpenses = _dbContext.Expenses.ToList<Expense>();
+        return View(allExpenses);
     }
     public IActionResult ExpenseCreateEdit()
     {
